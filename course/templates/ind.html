@@ -1,0 +1,18 @@
+<h1>ready</h1>>
+{% if messages %}
+{% for m in messages %}
+{{m}}
+{% endfor %}
+{% endif %}
+<form method="POST", action="">
+	{% csrf_token %} 
+	<p>{{form.as_p}}</p>
+	<button type="submit" class="btn btn-block color-white bgc-gogle"><i class="fa fa-google float-left mt5"></i> Google</button>
+									
+</form>
+<p>
+	{% for f in courses %}
+	<li>{{f}}</li>
+	{% endfor %}
+
+</p>

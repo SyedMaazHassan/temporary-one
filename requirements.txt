@@ -1,0 +1,9 @@
+django==2.1.5
+django-phonenumber-field[phonenumberslite]
+pillow
+django-crispy-forms==1.9.2
+# django==2.2.8
+six==1.15.0
+validate_email
+gunicorn
+whitenoise

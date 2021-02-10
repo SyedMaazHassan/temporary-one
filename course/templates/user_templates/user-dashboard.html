@@ -1,0 +1,1132 @@
+{% extends 'base/index.html' %}
+
+{% block css %}
+<style>
+	.hidden{
+		display:none
+	}
+</style>
+{% endblock %}
+{% block content %}
+
+{{form}}
+<div id="userprofile" class="wrapper">
+	<div class="preloader"></div>
+
+	<!-- User Dashbord -->
+	<section class="our-dashbord dashbord pb50 my-0">
+		<div class="container-fluid">
+			<div id = "content_bag" class="row">
+				<div class="col-sm-12 col-lg-4 col-xl-2 dn-smd pl0">
+
+					<div id="sidebar" class="user_board">
+						<div class="user_profile">
+							<div class="media">
+							  	<div class="media-body">
+							    	<h4 class="mt-0">Start</h4>
+								</div>
+							</div>
+						</div>
+						<div class="dashbord_nav_list">	
+							<ul> 
+								<li id="mydashboard_click"><a href="javascript:void(0);" onclick="make_tab_active('dash','mydashboard_click');"><span class="flaticon-puzzle-1"></span> Dashboard</a></li>
+								<li id="mycourse_click"><a href="javascript:void(0);" onclick="make_tab_active('course','mycourse_click');"><span class="flaticon-online-learning"></span> My Courses</a></li>
+								<li id="myorder_click"><a href="javascript:void(0);" onclick="make_tab_active('order','myorder_click');"><span class="flaticon-shopping-bag-1"></span> Order</a></li>
+								<li id="mymessage_click"><a href="javascript:void(0);" onclick="make_tab_active('message','mymessage_click');"><span class="flaticon-speech-bubble"></span> Messages</a></li>
+								<li id="myreview_click"><a href="javascript:void(0);" onclick="make_tab_active('review','myreview_click');"><span class="flaticon-rating"></span> Reviews</a></li>
+								<li id="mybookmark_click"><a href="javascript:void(0);" onclick="make_tab_active('bookmark','mybookmark_click');"><span class="flaticon-like"></span> Bookmarks</a></li>
+								<!-- <li id="mycourse_click"><a href="javascript:void(0);" onclick="make_tab_active('mycourse','mycourse_click');"><span class="flaticon-add-contact"></span> Add listing</a></li> -->
+							</ul>
+							
+							<h4>Account</h4>
+							<ul>
+								<li id="mysetting_click"><a href="javascript:void(0);" onclick="make_tab_active('setting','mysetting_click');"><span class="flaticon-settings"></span> Settings</a></li>
+								<li><a href="page-my-setting.html"><span class="flaticon-settings"></span> Settings</a></li>
+								<li><a href="page-login.html"><span class="flaticon-logout"></span> Logout</a></li>
+							</ul>
+
+						</div>
+					</div>
+
+				
+				</div>
+				
+				<!-- Dashbord -->
+				<div class="col-sm-12 col-lg-8 col-xl-10 pl-5">
+					<div id= "myprofilecontent">
+						<div id="mydashboard" class="dash show row hidden">
+							<div class="col-lg-12">
+								<nav class="breadcrumb_widgets" aria-label="breadcrumb mb30">
+									{%  if profiles_data.fname == None %}
+										<h4 class="title float-left">Welcome</h4>
+									{% else %}
+										<h4 class="title float-left">Welcome {{profiles_data.fname}}</h4>
+									{% endif %}
+									<ol class="breadcrumb float-right">
+										<li class="breadcrumb-item"><a href="#">Home</a></li>
+										<li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+									</ol>
+								</nav>
+							</div>
+							<div class="col-sm-6 col-md-6 col-lg-6 col-xl-3">
+								<div class="ff_one">
+									<div class="icon"><span class="flaticon-speech-bubble"></span></div>
+									<div class="detais">
+										<p>Messages</p>
+										<div class="timer">45</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-6 col-md-6 col-lg-6 col-xl-3">
+								<div class="ff_one style2">
+									<div class="icon"><span class="flaticon-rating"></span></div>
+									<div class="detais">
+										<p>Reviews</p>
+										<div class="timer">567</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-6 col-md-6 col-lg-6 col-xl-3">
+								<div class="ff_one style3">
+									<div class="icon"><span class="flaticon-online-learning"></span></div>
+									<div class="detais">
+										<p>Courses</p>
+										<div class="timer">{{profiles_data.count_user_courses}}</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-6 col-md-6 col-lg-6 col-xl-3">
+								<div class="ff_one style4">
+									<div class="icon"><span class="flaticon-like"></span></div>
+									<div class="detais">
+										<p>Bookmarks</p>
+										<div class="timer">27</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-8">
+								<div class="application_statics">
+									<h4>Main Tab Contents shoudld live here</h4>
+									<div class="c_container"></div>
+								</div>
+							</div>
+							<div class="col-xl-4">
+								<div class="recent_job_activity">
+									<h4 class="title">Notifications</h4>
+									<div class="grid">
+										<ul>
+											<li><div class="title">Status Update</div></li>
+											<li><p>This is an automated server response message. All systems are online.</p></li>
+										</ul>
+									</div>
+									<div class="grid">
+										<ul>
+											<li><div class="title">Status Update</div></li>
+											<li><p>This is an automated server response message. All systems are online.</p></li>
+										</ul>
+									</div>
+									<div class="grid">
+										<ul>
+											<li><div class="title">Status Update</div></li>
+											<li><p>This is an automated server response message. All systems are online.</p></li>
+										</ul>
+									</div>
+									<div class="grid">
+										<ul>
+											<li><div class="title">Status Update</div></li>
+											<li><p>This is an automated server response message. All systems are online.</p></li>
+										</ul>
+									</div>
+									<div class="grid mb0">
+										<ul class="pb0 mb0 bb_none">
+											<li><div class="title">Status Update</div></li>
+											<li><p>This is an automated server response message. All systems are online.</p></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="mycourse" class="course show row hidden">
+							
+							<div class="col-lg-12">
+								<nav class="breadcrumb_widgets" aria-label="breadcrumb mb30">
+									<h4 class="title float-left">My Courses</h4>
+									<ol class="breadcrumb float-right">
+										<li class="breadcrumb-item"><a href="#">Home</a></li>
+										<li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+									</ol>
+								</nav>
+							</div>
+							<div class="col-lg-12">
+								<div class="my_course_content_container">
+									<div class="my_course_content mb30">
+										<div class="my_course_content_header">
+											<div class="col-xl-4">
+												<div class="instructor_search_result style2">
+													<h4 class="mt10">Courses</h4>
+												</div>
+											</div>
+											<div class="col-xl-8">
+												<div class="candidate_revew_select style2 text-right">
+													<ul class="mb0">
+														<li class="list-inline-item">
+															<select class="selectpicker show-tick">
+																<option>Newly published</option>
+																<option>Recent</option>
+																<option>Old Review</option>
+															</select>
+														</li>
+														<li class="list-inline-item">
+															<div class="candidate_revew_search_box course fn-520">
+																<form class="form-inline my-2 my-lg-0">
+																	<input class="form-control mr-sm-2" type="search" placeholder="Search our instructors" aria-label="Search">
+																	<button class="btn my-2 my-sm-0" type="submit"><span class="flaticon-magnifying-glass"></span></button>
+																</form>
+															</div>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+										<div class="my_course_content_list">
+											{% for course in course_data %}
+											<div class="mc_content_list style2">
+												<div class="thumb">
+													<img class="img-whp" src="{{course.course_img.url}}" alt="t2.jpg">
+													<div class="overlay">
+														<ul class="mb0">
+															<li class="list-inline-item">
+																<a class="mcc_edit" href="#">Edit</a>
+															</li>
+															<li class="list-inline-item">
+																<a class="mcc_view" href="#">View</a>
+															</li>
+														</ul>
+													</div>
+												</div>
+												<div class="details">
+													<div class="mc_content">
+														<p class="subtitle">Ali TUFAN</p>
+														<h5 class="title">"{{course.name}}"</h5>
+														<p>Lorem ipsum dolor sit amet, est ei idque voluptua copiosae, pro detracto disputando reformidans at, ex vel suas eripuit. Vel alii zril maiorum ex, mea id sale eirmod epicurei. Sit te possit senserit, eam alia veritus maluisset ei, id cibo vocent ocurreret per. Te qui doming doctus referrentur, usu debet tamquam et.</p>
+													</div>
+													<div class="mc_footer style2">
+														<ul class="mc_meta fn-414">
+															<li class="list-inline-item"><a href="#"><i class="flaticon-profile"></i></a></li>
+															<li class="list-inline-item"><a href="#">1548</a></li>
+															<li class="list-inline-item"><a href="#"><i class="flaticon-comment"></i></a></li>
+															<li class="list-inline-item"><a href="#">25</a></li>
+														</ul>
+														<ul class="mc_review fn-414">
+															<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+															<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+															<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+															<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+															<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+															<li class="list-inline-item"><a href="#">(5)</a></li>
+															<li class="list-inline-item tc_price fn-414"><a href="#">$69.95</a></li>
+														</ul>
+														<ul class="skills float-right">
+															<li class="progressbar3" data-width="92" data-target="92"><span class="float-right">92% Complete</span></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+											{% endfor %}
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="myorder" class="order show row hidden">
+							<div class="col-lg-12">
+								<div class="dashboard_navigationbar dn db-991">
+									<div class="dropdown">
+										<button onclick="myFunction()" class="dropbtn"><i class="fa fa-bars pr10"></i> Dashboard Navigation</button>
+										<ul id="myDropdown" class="dropdown-content">
+											<li><a href="page-dashboard.html"><span class="flaticon-puzzle-1"></span> Dashboard</a></li>
+											<li><a href="page-my-courses.html"><span class="flaticon-online-learning"></span> My Courses</a></li>
+											<li class="active"><a href="page-my-order.html"><span class="flaticon-shopping-bag-1"></span> Order</a></li>
+											<li><a href="page-my-message.html"><span class="flaticon-speech-bubble"></span> Messages</a></li>
+											<li><a href="page-my-review.html"><span class="flaticon-rating"></span> Reviews</a></li>
+											<li><a href="page-my-bookmarks.html"><span class="flaticon-like"></span> Bookmarks</a></li>
+											<li><a href="page-my-listing.html"><span class="flaticon-add-contact"></span> Add listing</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-12">
+								<nav class="breadcrumb_widgets" aria-label="breadcrumb mb30">
+									<h4 class="title float-left">Order</h4>
+									<ol class="breadcrumb float-right">
+										<li class="breadcrumb-item"><a href="#">Home</a></li>
+										<li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+									</ol>
+								</nav>
+							</div>
+							<div class="col-lg-12">
+								<div class="my_course_content_container">
+									<div class="my_setting_content">
+										<div class="my_setting_content_header">
+											<div class="my_sch_title">
+												<h4 class="m0">My Orders</h4>
+											</div>
+										</div>
+										<div class="my_setting_content_details pb0">
+											<div class="cart_page_form style2">
+												<form action="#">
+													<table class="table table-responsive">
+														  <thead>
+															<tr class="carttable_row">
+																<th class="cartm_title">Item</th>
+																<th class="cartm_title">Date</th>
+																<th class="cartm_title">Status</th>
+																<th class="cartm_title">Total</th>
+																<th class="cartm_title">Action</th>
+															</tr>
+														  </thead>
+														  <tbody class="table_body">
+															{% for course in course_data %}
+															<tr>
+																<th scope="row">
+																	<ul class="cart_list">
+																		<li class="list-inline-item pr20"><a href="#"><img src="{{course.course_img.url}}" alt="cart1.png"></a></li>
+																		<li class="list-inline-item"><a class="cart_title" href="#">{{course.name}}</a></li>
+																	</ul>
+																</th>
+																<td>01/03/2019</td>
+																<td>Completed</td>
+																<td class="cart_total">$259.00</td>
+																<td class="text-thm tdu">Receipt</td>
+															</tr>
+															{% endfor %}
+														  </tbody>
+													</table>
+												</form>
+											</div>
+										</div>
+										<div class="my_setting_content_header pt0">
+											<div class="my_sch_title">
+												<h4 class="m0">Order Details</h4>
+											</div>
+										</div>
+										<div class="my_setting_content_details">
+											<ul class="order_key_status mb0">
+												<li>Order key <span>ORDER5C78E5C9B55A1</span></li>
+												<li>Order status <span>Completed</span></li>
+											</ul>
+										</div>
+										<div class="my_setting_content_details">
+											<div class="cart_page_form style3">
+												<form action="#">
+													<table class="table table-responsive">
+														  <thead>
+															<tr class="carttable_row">
+																<th class="cartm_title">Item</th>
+																<th class="cartm_title">Ordered</th>
+																<th class="cartm_title">Coupon Code</th>
+																<th class="cartm_title">Quantity</th>
+																<th class="cartm_title">Price</th>
+																<th class="cartm_title">Amount</th>
+															</tr>
+														  </thead>
+														  <tbody class="table_body">
+															<tr>
+																<th scope="row">
+																	<ul class="cart_list">
+																		<li class="list-inline-item"><a class="cart_title" href="#">Introduction Web Design with HTML</a></li>
+																	</ul>
+																</th>
+																<td>01/03/2019</td>
+																<td>SNUGGLE202</td>
+																<td>1</td>
+																<td class="cart_total">$259.00</td>
+																<td class="">$2,590.00</td>
+															</tr>
+															<tr class="borderless_table_row">
+																<th scope="row"></th>
+																<td></td>
+																<td></td>
+																<td></td>
+																<td class="cart_total color-dark fz18 pb10">Total</td>
+																<td class="color-gray2 fz15 pb10">$2,590.00</td>
+															</tr>
+														  </tbody>
+													</table>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="myreview" class="review show row hidden">
+							<div class="col-lg-12">
+								<nav class="breadcrumb_widgets" aria-label="breadcrumb mb30">
+									<h4 class="title float-left">Review</h4>
+									<ol class="breadcrumb float-right">
+										<li class="breadcrumb-item"><a href="#">Home</a></li>
+										<li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+									</ol>
+								</nav>
+							</div>
+							<div class="col-lg-12">
+								<div class="cs_row_six csv2 style2">
+									<div class="sfeedbacks">
+										<div class="mbp_pagination_comments">
+											<div class="mbp_first media csv1 style2 mb60">
+												<img src="images/resource/review1.png" class="mr-3" alt="review1.png">
+												<div class="media-body">
+													<h4 class="sub_title mt-0">Warren Bethell
+														<span class="sspd_review float-right">
+															<ul>
+																<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+																<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+																<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+																<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+																<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+																<li class="list-inline-item"></li>
+															</ul>
+														</span>
+													</h4>
+													<a class="sspd_postdate fz14" href="#">6 months ago</a>
+													<p class="fz15 mt20">This is the second Photoshop course I have completed with Cristian. Worth every penny and recommend it highly. To get the most out of this course, its best to to take the Beginner to Advanced course first.</p>
+													<p class="fz15 mt25 mb25">The sound and video quality is of a good standard. Thank you Cristian.</p> <div class="ssp_reply float-right"><span class="flaticon-consulting-message"></span><span class="pl10">Reply</span></div>
+													<div class="sspd_review_liked"><a href="#"><i class="flaticon-like-1"></i> <span class="text-thm6 pl5 pr5 fz15">15</span> Thank Waren</a></div>
+												</div>
+											</div>
+											<div class="mbp_first media csv1 style2 mb60">
+												<img src="images/resource/review1.png" class="mr-3" alt="review1.png">
+												<div class="media-body">
+													<h4 class="sub_title mt-0">Alex Hunter
+														<span class="sspd_review float-right">
+															<ul>
+																<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+																<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+																<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+																<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+																<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+																<li class="list-inline-item"></li>
+															</ul>
+														</span>
+													</h4>
+													<a class="sspd_postdate fz14" href="#">6 months ago</a>
+													<p class="fz15 mt20">This is the second Photoshop course I have completed with Cristian. Worth every penny and recommend it highly. To get the most out of this course, its best to to take the Beginner to Advanced course first.</p>
+													<p class="fz15 mt25 mb25">The sound and video quality is of a good standard. Thank you Cristian.</p> <div class="ssp_reply float-right"><span class="flaticon-consulting-message"></span><span class="pl10">Reply</span></div>
+													<div class="sspd_review_liked"><a href="#"><i class="flaticon-like-1"></i> <span class="text-thm6 pl5 pr5 fz15">15</span> Thank Waren</a></div>
+												</div>
+											</div>
+											<div class="mbp_second media csv1 style2">
+												<img src="images/resource/review1.png" class="align-self-start mr-3" alt="review1.png">
+												<div class="media-body">
+													<h4 class="sub_title mt-0">Danny Williams
+														<span class="sspd_review float-right">
+															<ul>
+																<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+																<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+																<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+																<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+																<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+																<li class="list-inline-item"></li>
+															</ul>
+														</span>
+													</h4>
+													<a class="sspd_postdate fz14" href="#">6 months ago</a>
+													<p class="fz15 mt20">This is the second Photoshop course I have completed with Cristian. Worth every penny and recommend it highly. To get the most out of this course, its best to to take the Beginner to Advanced course first.</p>
+													<p class="fz15 mt25 mb25">The sound and video quality is of a good standard. Thank you Cristian.</p> <div class="ssp_reply float-right"><span class="flaticon-consulting-message"></span><span class="pl10">Reply</span></div>
+													<div class="sspd_review_liked"><a href="#"><i class="flaticon-like-1"></i> <span class="text-thm6 pl5 pr5 fz15">15</span> Thank Waren</a></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="mymessage" class="message show row hidden">
+							<div class="col-xl-12">
+								<div class="row">
+									<div class="col-lg-12">
+										<nav class="breadcrumb_widgets" aria-label="breadcrumb mb30">
+											<h4 class="title float-left">Messages</h4>
+											<ol class="breadcrumb float-right">
+												<li class="breadcrumb-item"><a href="#">Home</a></li>
+												<li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+											</ol>
+										</nav>
+									</div>
+								</div>
+								<div class="row message_container">
+									<div class="col-sm-12 col-md-6 col-lg-5 col-xl-4 pr0 pl0">
+										<div class="inbox_user_list">
+											<div class="iu_heading">
+												<div class="candidate_revew_search_box">
+													<form class="form-inline my-2 my-lg-0">
+														<input class="form-control mr-sm-2" type="search" placeholder="Serach" aria-label="Search">
+														<button class="btn my-2 my-sm-0" type="submit"><span class="flaticon-magnifying-glass"></span></button>
+													</form>
+												</div>
+											</div>
+											<ul>
+												<li class="contact">
+													<a href="#">
+														<div class="wrap">
+															<span class="contact-status online"></span>
+															<img class="img-fluid" src="images/team/s1.jpg" alt="s1.jpg">
+															<div class="meta">
+																<h5 class="name">Vincent Porter</h5>
+																<p class="preview">I'm going to office.</p>
+															</div>
+														</div>
+													</a>
+												</li>
+												<li class="contact">
+													<a href="#">
+														<div class="wrap">
+															<span class="contact-status online"></span>
+															<img class="img-fluid" src="images/team/s2.jpg" alt="s2.jpg">
+															<div class="meta">
+																<h5 class="name">Jacob Brown</h5>
+																<p class="preview">You: Where is Alex?</p>
+															</div>
+														</div>
+													</a>
+												</li>
+												<li class="contact">
+													<a href="#">
+														<div class="wrap">
+															<span class="contact-status online"></span>
+															<img class="img-fluid" src="images/team/s3.jpg" alt="s3.jpg">
+															<div class="meta">
+																<h5 class="name">Harry Taylor</h5>
+																<p class="preview">I'm going to office.</p>
+															</div>
+														</div>
+													</a>
+												</li>
+												<li class="contact">
+													<a href="#">
+														<div class="wrap">
+															<span class="contact-status busy"></span>
+															<img class="img-fluid" src="images/team/s4.jpg" alt="s4.jpg">
+															<div class="meta">
+																<h5 class="name">Sarah Miller</h5>
+																<p class="preview">You: okay!</p>
+															</div>
+														</div>
+													</a>
+												</li>
+												<li class="contact">
+													<a href="#">
+														<div class="wrap">
+															<span class="contact-status away"></span>
+															<img class="img-fluid" src="images/team/s5.jpg" alt="s5.jpg">
+															<div class="meta">
+																<h5 class="name">Joanne Davies</h5>
+																<p class="preview">Let’s go!</p>
+															</div>
+														</div>
+													</a>
+												</li>
+												<li class="contact">
+													<a href="#">
+														<div class="wrap">
+															<span class="contact-status busy"></span>
+															<img class="img-fluid" src="images/team/s6.jpg" alt="s6.jpg">
+															<div class="meta">
+																<h5 class="name">Sam Lee</h5>
+																<p class="preview">Awesome!</p>
+															</div>
+														</div>
+													</a>
+												</li>
+												<li class="contact">
+													<a href="#">
+														<div class="wrap">
+															<span class="contact-status online"></span>
+															<img class="img-fluid" src="images/team/s7.jpg" alt="s7.jpg">
+															<div class="meta">
+																<h5 class="name">Vincent Porter</h5>
+																<p class="preview">I'm going to office.</p>
+															</div>
+														</div>
+													</a>
+												</li>
+												<li class="contact">
+													<a href="#">
+														<div class="wrap">
+															<span class="contact-status online"></span>
+															<img class="img-fluid" src="images/team/s8.jpg" alt="s8.jpg">
+															<div class="meta">
+																<h5 class="name">Jacob Brown</h5>
+																<p class="preview">You: Where is Alex?</p>
+															</div>
+														</div>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<div class="col-sm-12 col-md-6 col-lg-7 col-xl-8 pr0 pl0">
+										<div class="user_heading">
+											<a href="#">
+												<div class="wrap">
+													<span class="contact-status online"></span>
+													<img class="img-fluid" src="images/team/s5.jpg" alt="s5.jpg">
+													<div class="meta">
+														<h5 class="name">Joanne Davies</h5>
+														<p class="preview">was online today at 11:43</p>
+													</div>
+												</div>
+											</a>
+										</div>
+										<div class="last_seen_time text-center">
+											<a href="#">November 5, 2018</a>
+										</div>
+										<div class="inbox_chatting_box">
+											<ul class="chatting_content">
+												<li class="media sent">
+													<span class="contact-status busy"></span>
+													<img class="img-fluid align-self-start mr-3" src="images/team/s6.jpg" alt="s6.jpg">
+													<div class="media-body">
+														<div class="date_time">Today, 10:31</div>
+														<p>Hello, John!</p>
+													</div>
+												</li>
+												<li class="media sent">
+													<span class="contact-status busy"></span>
+													<img class="img-fluid align-self-start mr-3" src="images/team/s6.jpg" alt="s6.jpg">
+													<div class="media-body">
+														<div class="date_time">Today, 10:31</div>
+														<p>simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
+													</div>
+												</li>
+												<li class="media reply first">
+													<div class="media-body text-right">
+														<div class="date_time">Today, 10:35</div>
+														<p>Are we meeting today?</p>
+													</div>
+												</li>
+												<li class="media reply">
+													<div class="media-body text-right">
+														<div class="date_time">Today, 10:35</div>
+														<p>The project finally complete! Let's go to!</p>
+													</div>
+												</li>
+												<li class="media sent">
+													<span class="contact-status busy"></span>
+													<img class="img-fluid align-self-start mr-3" src="images/team/s6.jpg" alt="s6.jpg">
+													<div class="media-body">
+														<div class="date_time">Today, 10:45</div>
+														<p>Let's go!</p>
+													</div>
+												</li>
+												<li class="media sent">
+													<span class="contact-status busy"></span>
+													<img class="img-fluid align-self-start mr-3" src="images/team/s6.jpg" alt="s6.jpg">
+													<div class="media-body">
+														<div class="date_time">Today, 10:51</div>
+														<p>simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
+													</div>
+												</li>
+												<li class="media sent">
+													<span class="contact-status busy"></span>
+													<img class="img-fluid align-self-start mr-3" src="images/team/s6.jpg" alt="s6.jpg">
+													<div class="media-body">
+														<div class="date_time">Today, 10:31</div>
+														<p>Hello, John!</p>
+													</div>
+												</li>
+												<li class="media sent">
+													<span class="contact-status busy"></span>
+													<img class="img-fluid align-self-start mr-3" src="images/team/s6.jpg" alt="s6.jpg">
+													<div class="media-body">
+														<div class="date_time">Today, 10:31</div>
+														<p>simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
+													</div>
+												</li>
+												<li class="media reply first">
+													<div class="media-body text-right">
+														<div class="date_time">Today, 10:35</div>
+														<p>Are we meeting today?</p>
+													</div>
+												</li>
+												<li class="media reply">
+													<div class="media-body text-right">
+														<div class="date_time">Today, 10:35</div>
+														<p>The project finally complete! Let's go to!</p>
+													</div>
+												</li>
+												<li class="media sent">
+													<span class="contact-status busy"></span>
+													<img class="img-fluid align-self-start mr-3" src="images/team/s6.jpg" alt="s6.jpg">
+													<div class="media-body">
+														<div class="date_time">Today, 10:45</div>
+														<p>Let's go!</p>
+													</div>
+												</li>
+												<li class="media sent">
+													<span class="contact-status busy"></span>
+													<img class="img-fluid align-self-start mr-3" src="images/team/s6.jpg" alt="s6.jpg">
+													<div class="media-body">
+														<div class="date_time">Today, 10:51</div>
+														<p>simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
+													</div>
+												</li>
+												<li class="media reply first">
+													<div class="media-body text-right">
+														<div class="date_time">Today, 10:35</div>
+														<p>Are we meeting today?</p>
+													</div>
+												</li>
+												<li class="media reply">
+													<div class="media-body text-right">
+														<div class="date_time">Today, 10:35</div>
+														<p>The project finally complete! Let's go to!</p>
+													</div>
+												</li>
+												<li class="media sent">
+													<span class="contact-status busy"></span>
+													<img class="img-fluid align-self-start mr-3" src="images/team/s6.jpg" alt="s6.jpg">
+													<div class="media-body">
+														<div class="date_time">Today, 10:45</div>
+														<p>Let's go!</p>
+													</div>
+												</li>
+												<li class="media sent">
+													<span class="contact-status busy"></span>
+													<img class="img-fluid align-self-start mr-3" src="images/team/s6.jpg" alt="s6.jpg">
+													<div class="media-body">
+														<div class="date_time">Today, 10:51</div>
+														<p>simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
+													</div>
+												</li>
+											</ul>
+										</div>
+										<div class="message_input">
+											<form class="form-inline">
+												<input class="form-control" type="search" placeholder="Enter text here..." aria-label="Search">
+												<button class="btn" type="submit">Send <span class="flaticon-paper-plane"></span></button>
+											</form>
+										</div>
+									</div>
+								</div>
+								<div class="row mt50 mb50">
+									<div class="col-lg-12">
+										<div class="copyright-widget text-center">
+											<p class="color-black2">Copyright SAIDATECH © 2019. All Rights Reserved.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="mybookmark" class="bookmark show row hidden">
+							<div class="col-xl-12">
+								<div class="row">
+									<div class="col-lg-12">
+										<nav class="breadcrumb_widgets" aria-label="breadcrumb mb30">
+											<h4 class="title float-left">Bookmarks</h4>
+											<ol class="breadcrumb float-right">
+												<li class="breadcrumb-item"><a href="#">Home</a></li>
+												<li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+											</ol>
+										</nav>
+									</div>
+									<div class="col-lg-12">
+										<div class="my_course_content_container">
+											<div class="my_course_content mb30">
+												<div class="my_course_content_header">
+													<div class="col-xl-4">
+														<div class="instructor_search_result style2">
+															<h4 class="mt10">Bookmarked Courses</h4>
+														</div>
+													</div>
+													<div class="col-xl-8">
+														<div class="candidate_revew_select style2 text-right">
+															<ul class="mb0">
+																<li class="list-inline-item">
+																	<div class="dropdown bootstrap-select show-tick"><select class="selectpicker show-tick" tabindex="-98">
+																		<option>Newly published</option>
+																		<option>Recent</option>
+																		<option>Old Review</option>
+																	</select><button type="button" class="btn dropdown-toggle btn-light" data-toggle="dropdown" role="button" title="Newly published" aria-expanded="false"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">Newly published</div></div> </div></button><div class="dropdown-menu" role="combobox" x-placement="bottom-start" style="max-height: 589px; overflow: hidden; min-height: 0px; position: absolute; transform: translate3d(0px, 50px, 0px); top: 0px; left: 0px; will-change: transform;"><div class="inner show" role="listbox" aria-expanded="false" tabindex="-1" style="max-height: 571px; overflow-y: auto; min-height: 0px;"><ul class="dropdown-menu inner show"><li class="selected active"><a role="option" class="dropdown-item selected active" aria-disabled="false" tabindex="0" aria-selected="true"><span class=" bs-ok-default check-mark"></span><span class="text">Newly published</span></a></li><li><a role="option" class="dropdown-item" aria-disabled="false" tabindex="0" aria-selected="false"><span class=" bs-ok-default check-mark"></span><span class="text">Recent</span></a></li><li><a role="option" class="dropdown-item" aria-disabled="false" tabindex="0" aria-selected="false"><span class=" bs-ok-default check-mark"></span><span class="text">Old Review</span></a></li></ul></div></div></div>
+																</li>
+																<li class="list-inline-item">
+																	<div class="candidate_revew_search_box course fn-520">
+																		<form class="form-inline my-2 my-lg-0">
+																			<input class="form-control mr-sm-2" type="search" placeholder="Search Courses" aria-label="Search">
+																			<button class="btn my-2 my-sm-0" type="submit"><span class="flaticon-magnifying-glass"></span></button>
+																		</form>
+																	</div>
+																</li>
+															</ul>
+														</div>
+													</div>
+												</div>
+												<div class="my_course_content_list">
+													<div class="mc_content_list">
+														<div class="thumb">
+															<img class="img-whp" src="images/courses/t1.jpg" alt="t1.jpg">
+															<div class="overlay"></div>
+														</div>
+														<div class="details">
+															<div class="mc_content">
+																<p class="subtitle">Ali TUFAN</p>
+																<h5 class="title">Introduction Web Design with HTML</h5>
+																<p>Lorem ipsum dolor sit amet, est ei idque voluptua copiosae, pro detracto disputando reformidans at, ex vel suas eripuit. Vel alii zril maiorum ex, mea id sale eirmod epicurei. Sit te possit senserit, eam alia veritus maluisset ei, id cibo vocent ocurreret per. Te qui doming doctus referrentur, usu debet tamquam et.</p>
+															</div>
+															<div class="mc_footer">
+																<ul class="mc_meta fn-414">
+																	<li class="list-inline-item"><a href="#"><i class="flaticon-profile"></i></a></li>
+																	<li class="list-inline-item"><a href="#">1548</a></li>
+																	<li class="list-inline-item"><a href="#"><i class="flaticon-comment"></i></a></li>
+																	<li class="list-inline-item"><a href="#">25</a></li>
+																</ul>
+																<ul class="mc_review fn-414">
+																	<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+																	<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+																	<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+																	<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+																	<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+																	<li class="list-inline-item"><a href="#">(5)</a></li>
+																	<li class="list-inline-item tc_price fn-414"><a href="#">$69.95</a></li>
+																</ul>
+																<ul class="view_edit_delete_list float-right">
+																	<li class="list-inline-item"><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="View"><span class="flaticon-preview"></span></a></li>
+																	<li class="list-inline-item"><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><span class="flaticon-edit"></span></a></li>
+																	<li class="list-inline-item"><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><span class="flaticon-delete-button"></span></a></li>
+																</ul>
+															</div>
+														</div>
+													</div>
+													<div class="mc_content_list">
+														<div class="thumb">
+															<img class="img-whp" src="images/courses/t2.jpg" alt="t2.jpg">
+															<div class="overlay"></div>
+														</div>
+														<div class="details">
+															<div class="mc_content">
+																<p class="subtitle">Ali TUFAN</p>
+																<h5 class="title">Designing a Responsive Mobile Website with Muse</h5>
+																<p>Lorem ipsum dolor sit amet, est ei idque voluptua copiosae, pro detracto disputando reformidans at, ex vel suas eripuit. Vel alii zril maiorum ex, mea id sale eirmod epicurei. Sit te possit senserit, eam alia veritus maluisset ei, id cibo vocent ocurreret per. Te qui doming doctus referrentur, usu debet tamquam et.</p>
+															</div>
+															<div class="mc_footer">
+																<ul class="mc_meta fn-414">
+																	<li class="list-inline-item"><a href="#"><i class="flaticon-profile"></i></a></li>
+																	<li class="list-inline-item"><a href="#">1548</a></li>
+																	<li class="list-inline-item"><a href="#"><i class="flaticon-comment"></i></a></li>
+																	<li class="list-inline-item"><a href="#">25</a></li>
+																</ul>
+																<ul class="mc_review fn-414">
+																	<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+																	<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+																	<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+																	<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+																	<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+																	<li class="list-inline-item"><a href="#">(5)</a></li>
+																	<li class="list-inline-item tc_price fn-414"><a href="#">$69.95</a></li>
+																</ul>
+																<ul class="view_edit_delete_list float-right">
+																	<li class="list-inline-item"><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="View"><span class="flaticon-preview"></span></a></li>
+																	<li class="list-inline-item"><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><span class="flaticon-edit"></span></a></li>
+																	<li class="list-inline-item"><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><span class="flaticon-delete-button"></span></a></li>
+																</ul>
+															</div>
+														</div>
+													</div>
+													<div class="mc_content_list">
+														<div class="thumb">
+															<img class="img-whp" src="images/courses/t3.jpg" alt="t3.jpg">
+															<div class="overlay"></div>
+														</div>
+														<div class="details">
+															<div class="mc_content">
+																<p class="subtitle">Ali TUFAN</p>
+																<h5 class="title">Sketch: Creating Responsive SVG</h5>
+																<p>Lorem ipsum dolor sit amet, est ei idque voluptua copiosae, pro detracto disputando reformidans at, ex vel suas eripuit. Vel alii zril maiorum ex, mea id sale eirmod epicurei. Sit te possit senserit, eam alia veritus maluisset ei, id cibo vocent ocurreret per. Te qui doming doctus referrentur, usu debet tamquam et.</p>
+															</div>
+															<div class="mc_footer">
+																<ul class="mc_meta fn-414">
+																	<li class="list-inline-item"><a href="#"><i class="flaticon-profile"></i></a></li>
+																	<li class="list-inline-item"><a href="#">1548</a></li>
+																	<li class="list-inline-item"><a href="#"><i class="flaticon-comment"></i></a></li>
+																	<li class="list-inline-item"><a href="#">25</a></li>
+																</ul>
+																<ul class="mc_review fn-414">
+																	<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+																	<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+																	<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+																	<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+																	<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+																	<li class="list-inline-item"><a href="#">(5)</a></li>
+																	<li class="list-inline-item tc_price fn-414"><a href="#">$69.95</a></li>
+																</ul>
+																<ul class="view_edit_delete_list float-right">
+																	<li class="list-inline-item"><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="View"><span class="flaticon-preview"></span></a></li>
+																	<li class="list-inline-item"><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><span class="flaticon-edit"></span></a></li>
+																	<li class="list-inline-item"><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><span class="flaticon-delete-button"></span></a></li>
+																</ul>
+															</div>
+														</div>
+													</div>
+													<div class="mc_content_list">
+														<div class="thumb">
+															<img class="img-whp" src="images/courses/t4.jpg" alt="t4.jpg">
+															<div class="overlay"></div>
+														</div>
+														<div class="details">
+															<div class="mc_content">
+																<p class="subtitle">Ali TUFAN</p>
+																<h5 class="title">How to be a DJ? Make Electronic Music</h5>
+																<p>Lorem ipsum dolor sit amet, est ei idque voluptua copiosae, pro detracto disputando reformidans at, ex vel suas eripuit. Vel alii zril maiorum ex, mea id sale eirmod epicurei. Sit te possit senserit, eam alia veritus maluisset ei, id cibo vocent ocurreret per. Te qui doming doctus referrentur, usu debet tamquam et.</p>
+															</div>
+															<div class="mc_footer">
+																<ul class="mc_meta fn-414">
+																	<li class="list-inline-item"><a href="#"><i class="flaticon-profile"></i></a></li>
+																	<li class="list-inline-item"><a href="#">1548</a></li>
+																	<li class="list-inline-item"><a href="#"><i class="flaticon-comment"></i></a></li>
+																	<li class="list-inline-item"><a href="#">25</a></li>
+																</ul>
+																<ul class="mc_review fn-414">
+																	<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+																	<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+																	<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+																	<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+																	<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
+																	<li class="list-inline-item"><a href="#">(5)</a></li>
+																	<li class="list-inline-item tc_price fn-414"><a href="#">$69.95</a></li>
+																</ul>
+																<ul class="view_edit_delete_list float-right">
+																	<li class="list-inline-item"><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="View"><span class="flaticon-preview"></span></a></li>
+																	<li class="list-inline-item"><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><span class="flaticon-edit"></span></a></li>
+																	<li class="list-inline-item"><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><span class="flaticon-delete-button"></span></a></li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="mysetting" class="setting show row hidden">
+							<div class="col-sm-12 col-lg-8 col-xl-12">
+								<div class="row">
+									<div class="col-lg-12">
+										<nav class="breadcrumb_widgets" aria-label="breadcrumb mb30">
+											<h4 class="title float-left">User Profile</h4>
+											<ol class="breadcrumb float-right">
+												<li class="breadcrumb-item"><a href="#">Home</a></li>
+												<li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+											</ol>
+										</nav>
+									</div>
+									<div class="col-lg-12">
+										<div class="my_course_content_container">
+											<form method="POST" action="#" class="my_setting_content mb30">
+												<div class="my_setting_content_header">
+													<div class="my_sch_title">
+														<h4 class="m0">Personal Details</h4>
+													</div>
+												</div>
+												<!-- <form  class="row my_setting_content_details pb0"> -->
+												<form method="POST" action="#">
+													{% csrf_token %} 
+													<div class="col-xl-2">
+														<div class="wrap-custom-file">
+															<!-- {{profile_edit_form.picture}} -->
+															<!-- <input type="file" name="image1" id="image1" accept=".gif, .jpg, .png"> -->
+															<label for="image1">
+																  <span>Browse</span>
+															</label>
+														</div>
+													</div>
+													<div class="col-xl-10">
+														<div class="row">
+															<div class="col-xl-6">
+																<div class="my_profile_setting_input form-group">
+																	<label for="formGroupExampleInput1">First Name</label>
+																	{{profile_edit_form.fname}}
+																</div>
+																<div class="my_profile_setting_input form-group">
+																	<label for="formGroupExampleInput2">Linkedin Url</label>
+																	{{profile_edit_form.linkedin_url}}
+																</div>
+															</div>
+															<div class="col-xl-6">
+																<div class="my_profile_setting_input form-group">
+																	<label for="formGroupExampleInput3">Last Name</label>
+																	{{profile_edit_form.lname}}
+																</div>
+																<div class="my_profile_setting_input form-group">
+																	<label for="exampleInputPhone">Phone</label>
+																	{{profile_edit_form.phone}}
+																	<!-- <input type="email" value="{{profiles_data.phone}}" class="form-control" id="exampleInputPhone" aria-describedby="phoneNumber"> -->
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-lg-12">
+														<div class="my_resume_textarea">
+															<div class="form-group">
+																<label for="exampleFormControlTextarea1">Personal info</label>
+																<textarea class="form-control" id="exampleFormControlTextarea1" rows="7"></textarea>
+															</div>
+														</div>
+													</div>
+													{% if profile_edit_form.errors %}
+														{% for field in profile_edit_form %}
+															{% for error in field.errors %}
+																<div class="alert alert-danger">
+																	<strong>{{ error|escape }}</strong>
+																</div>
+															{% endfor %}
+														{% endfor %}
+														{% for error in profile_edit_form.non_field_errors %}
+															<div class="alert alert-danger">
+																<strong>{{ error|escape }}</strong>
+																</div>
+														{% endfor %}
+													{% endif %}
+													<div class="col-lg-12">
+														<button type="submit" class="my_setting_savechange_btn btn btn-thm">Update Profile <span class="flaticon-right-arrow-1 ml15"></span></button>
+													</div>
+												</form>
+												<div class="my_setting_content_header style2">
+													<div class="my_sch_title">
+														<h4 class="m0">Change password</h4>
+													</div>
+												</div>
+												<div class="row my_setting_content_details pb0">
+													<div class="col-xl-6">
+														<div class="password_change_form">
+															<form>
+																<div class="form-group">
+																	<label for="exampleInputPassword1">Old Password</label>
+																	<!-- <input type="password" class="form-control" id="cpwd" placeholder="*******"> -->
+																	{{password_change_form.old_password}}
+																</div>
+																<div class="form-group">
+																	<label for="exampleInputPassword2">New Password</label>
+																	{{password_change_form.new_password1}}
+																	<!-- <input type="password" class="form-control" id="pas"> -->
+																</div>
+																<div class="form-group">
+																	<label for="exampleInputPassword3">Confirm New Password</label>
+																	{{password_change_form.new_password2}}
+																</div>
+															</form>
+														</div>
+													</div>
+												</div>
+												<div class="my_setting_content_header style3">
+													<div class="my_sch_title">
+														<h4 class="m0">Social Links</h4>
+													</div>
+												</div>
+												<div class="row my_setting_content_details">
+													<div class="col-xl-6">
+														<div class="my_profile_setting_input2">
+															  <label for="validationServerUsername">Facebook</label>
+															  <div class="input-group">
+																<input type="text" class="form-control" id="validationServerUsername" aria-describedby="inputGroupPrepend3" required="">
+															  </div>
+														</div>
+													</div>
+													<div class="col-xl-6">
+														<div class="my_profile_setting_input2">
+															  <label for="validationServerUsername2">Twitter</label>
+															  <div class="input-group">
+																<input type="text" class="form-control" id="validationServerUsername2" aria-describedby="inputGroupPrepend4" required="">
+															  </div>
+														</div>
+													</div>
+													<div class="col-xl-6">
+														<div class="my_profile_setting_input2">
+															  <label for="validationServerUsername3">Linkedin</label>
+															  <div class="input-group">
+																<input type="text" class="form-control" id="validationServerUsername3" aria-describedby="inputGroupPrepend4" required="">
+															  </div>
+														</div>
+													</div>
+													<div class="col-xl-6">
+														<div class="my_profile_setting_input2">
+															  <label for="validationServerUsername4">Google Plus</label>
+															  <div class="input-group">
+																<input type="text" class="form-control" id="validationServerUsername4" aria-describedby="inputGroupPrepend4" required="">
+															  </div>
+														</div>
+													</div>
+													<div class="col-lg-12">
+														<button type="submit" class="my_setting_savechange_btn btn btn-thm">Update Profile <span class="flaticon-right-arrow-1 ml15"></span></button>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+						</div>
+					</div>
+				</div>
+
+						<div class="row mt50">
+							<div class="col-lg-6 offset-lg-3">
+								<div class="copyright-widget text-center">
+									<p class="color-black2">Copyright SAIDATECH © 2019. All Rights Reserved.</p>
+								</div>
+							</div>
+						</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+<a class="scrollToHome" href="#"><i class="flaticon-up-arrow-1"></i></a>
+</div>
+
+
+<script>
+make_tab_active('dash','mydashboard_click');
+	
+function make_tab_active(a,nav_click_id) {
+
+const profile_cont= document.querySelectorAll('.show');
+for(x of profile_cont){
+	let y = x.className
+	if(y.includes(a)){
+		x.classList.remove('hidden');
+	}
+	else{
+		if (!y.includes('hidden')){
+			x.classList.add('hidden')
+		}
+	}
+}
+
+var navs = ["mydashboard_click", "mycourse_click", "myorder_click", "mymessage_click","myreview_click", "mybookmark_click"];
+navs.forEach(nav => {
+	if (nav !=nav_click_id)
+		{document.getElementById(nav).className = "";} 
+	else
+		{document.getElementById(nav).className = "active";}
+	});
+	
+	
+};
+var form_fields = document.getElementsByTagName("Input");
+	//<input type="text" class="form-control" id="exampleInputName2" placeholder="Username">
+	// form_fields[4].placeholder="Username ...";
+	// form_fields[5].placeholder="Email ...";
+	// form_fields[6].placeholder="Password ...";
+	// form_fields[7].placeholder="Confirm Password ...";
+
+	for (var fields in form_fields){
+		form_fields[fields].className= " form-control";
+	}
+</script>
+
+
+ {% endblock %}
+
